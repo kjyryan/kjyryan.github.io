@@ -39,15 +39,69 @@
 		background: rgb(1,131,42);
 		background: linear-gradient(180deg, rgba(1,131,42,1) 21%, rgba(44,163,27,1) 90%);
 	}
+	#exclusive{
+		width: 90%;
+		border-top: 1px solid #999999;
+		margin: 0 auto;
+		display:flex;
+		align-items:center;
+		/*flex-direction:row-reverse; */
+	}
+	#column1{margin:20px 50px;
+	}
+	#exclusive p{
+		font-size: 1.2em;
+		text-align:left;
+		color:#999999;
+	}
+	#footnote{
+		border-top: 1px solid #66cc33;
+		background: #222222;
+		font-size:0.8em;
+		color:#999999;
+		padding:30px 0px;
+	}
+	h2{
+		border-top:1px solid #fff;
+		background:#222222;
+		margin:0px;
+		padding:0px 20px;
+		font-weight:normal;
+	}
+	#advantage{
+		display:flex;
+		background:#222222;
+	}
+	.perk{
+		width:200px;
+		text-align:center;
+		color:#999999;
+		font-size:11pt;
+	}
 	</style>
 </head>
-<body>
-	<p>We remain committed to shipping your Razer.com orders on the next business day.</p>
+<body> <p>We remain committed to shipping your Razer.com orders on the next business day.</p>
 	<div id="container">
 		<img src="logo-razer.jpg"/>
 		<h1> Stay Safe and Get Geared for <br/> Work and Play</h1>
 		<div id="hero">
 			<a href="https://www.razer.com/sg-en">Shop Now</a>
+		</div>
+		<div id="exclusive">
+			<img src="keychain.jpg" id="column1"/>
+		<div id="column2">
+			<p> Get a Razer.com exclusive Team Razer V2 Keychain on orders over $84*. Offer ends Apr 30.</p>
+			<p>Use code: EDUGEARED</p>
+			</div>
+		</div>
+		<div id="footnote">
+			*Offer runs through April 30,2021 or while stocks last. Offer excludes digital goods and services. Limited to Razer.com purchases.
+		</div>
+		<h2>The Razer.com Advantage</h2>
+		<div id="advantage">
+			<div class="perk"><img src= "icon-shipping.jpg"/><p><span class="white">Free shipping over $99</span><br>Orders ship next business day</p></div>
+			<div class="perk"><img src= "icon-returns.jpg"/><p><span class="white">Easy Returns</span><br>14-days No risk</p></div>
+			<div class="perk"><img src= "icon-confidence.jpg"/><p><span class="white">Buy with confidence</span><br>Up to two-year limited warranty</p></div>
 		</div>
 	</div>
 </body>
