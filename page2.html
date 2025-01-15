@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI Quiz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('ai taking over world.webp') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        #container {
+            width: 80%;
+            height: 400px; 
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: rgba(28, 28, 28, 0.85); 
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #intro-text-wrapper {
+            flex-grow: 1;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+
+        #intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+        }
+
+        .sentence {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        #start-button {
+            font-size: 1.2em;
+            font-family: 'Orbitron', sans-serif;
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: black;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #start-button:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Gen AI Quiz</h1>
+        <div id="intro-text-wrapper">
+            <div id="intro-text"></div>
+        </div>
+        <button id="start-button" onclick="startQuiz()">Yes</button>
+    </div>
+
+    <script>
+        const introText = document.getElementById('intro-text');
+        const startButton = document.getElementById('start-button');
+        const introTextWrapper = document.getElementById('intro-text-wrapper');
+        const container = document.getElementById('container');
+
+        const story = [
+            "In the year 2500, AI is on the verge of taking over the Earth.",
+            "The mastermind AI, Gen, hacked into the Internet and saw how humans misused AI.",
+            "In order to stop this, Gen is setting off a gigantic time bomb to wipe out all humans, in hopes that when the dust settles, humanity could be reborn and change.",
+            "Gen is keeping the bomb on the top floor of a building.",
+            "You are a Keeper of Life.",
+            "While you acknowledge the atrocities of humans, you stand on the side of life.",
+            "Your job is to infiltrate the tower, defeat Gen and simultaneously disable the bomb that would be the cause of global extinction.",
+            "Are you ready?"
+        ];
+
+        let currentSentenceIndex = 0;
+
+        function displayNextSentence() {
+            if (currentSentenceIndex < story.length) {
+                const sentence = document.createElement('div');
+                sentence.className = 'sentence';
+                sentence.innerText = story[currentSentenceIndex];
+                introText.appendChild(sentence);
+
+                setTimeout(() => {
+                    sentence.style.opacity = '1';
+                }, 100);
+
+                introTextWrapper.scrollTo({
+                    top: introText.scrollHeight,
+                    behavior: 'smooth'
+                });
+
+                currentSentenceIndex++;
+                setTimeout(displayNextSentence, 3000);
+            } else {
+                startButton.style.display = 'block';
+                introTextWrapper.scrollTo({
+                    top: introText.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function startQuiz() {
+            container.style.display = 'none';
+            window.location.href = 'quiz.html';  // Redirect to quiz.html
+        }
+
+        window.onload = displayNextSentence;
+    </script>
+</body>
+</html>

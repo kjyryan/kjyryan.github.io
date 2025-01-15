@@ -1,0 +1,321 @@
+<html>
+    <head>
+        <title>IMDA - Gen AI</title>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                color: white;
+                font-family: sans-serif;
+            }
+
+            #container {
+                background: purple;
+                width: 960px;
+                height: auto;
+                padding: 50px;
+                box-sizing: border-box;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+                background-color: #333;
+                padding: 10px 20px;
+                border-radius: 5px;
+                margin-top: 20px;
+                display: inline-block;
+            }
+
+            a:hover {
+                background-color: #555;
+            }
+
+            /* Styling for AI and GenAI definitions */
+            .ai-definition, .genai-definition {
+                margin: 40px 0;
+                padding: 20px;
+                background-color: #6a0dad;
+                border-radius: 8px;
+            }
+
+            .ai-definition h2, .genai-definition h2, .genai-examples h2 {
+                font-size: 2em;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+
+            .ai-definition p, .genai-definition p, .genai-examples p {
+                font-size: 1.2em;
+                line-height: 1.6;
+                color: white;
+            }
+
+            /* List styling for examples */
+            .genai-examples ul {
+                list-style-type: none;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .genai-examples ul li {
+                font-size: 1.2em;
+                margin: 10px;
+                background-color: #d87a5c;
+                padding: 20px;
+                border-radius: 5px;
+                width: 45%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                box-sizing: border-box;
+            }
+
+            /* Centering and enlarging images */
+            .genai-examples ul li img {
+                width: 80%;
+                max-width: 400px;
+                height: auto;
+                margin-top: 20px;
+                border-radius: 5px;
+                object-fit: cover;
+            }
+
+            /* Styling for step-by-step guide */
+            .genai-tools {
+                margin: 40px 0;
+                background-color: #a9c9ff; /* Softer pastel blue color */
+                padding: 30px;
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            .genai-tools h2 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                font-weight: bold;
+            }
+
+            .genai-tools ol {
+                list-style-type: decimal;
+                padding-left: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: left; /* Align text to the left */
+            }
+
+            .genai-tools ol li {
+                font-size: 1.2em;
+                margin-bottom: 30px; /* Increased spacing */
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+
+            .genai-tools ol li img {
+                width: 200px; /* Adjust image size */
+                max-width: 300px;
+                height: auto;
+                margin-left: 20px;
+                border-radius: 5px;
+            }
+
+            .genai-tools ol li p {
+                max-width: 600px;
+                margin-right: 20px;
+            }
+
+            /* Styling for writing prompts section */
+            .writing-prompts {
+                background-color: #b35c42; /* Darker, warmer color */
+                padding: 30px;
+                border-radius: 8px;
+                margin-top: 50px;
+            }
+
+            .writing-prompts h2 {
+                font-size: 2em;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            .writing-prompts ol {
+                list-style-type: decimal;
+                padding-left: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 20px; /* Increased gap */
+            }
+
+            .writing-prompts ol li {
+                font-size: 1.5em; /* Increased font size for numbered points */
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            .writing-prompts ol li strong {
+                font-weight: bold;
+                text-decoration: underline;
+                font-size: 1.2em; /* Reduced size to 80% of previous */
+            }
+
+            .writing-prompts ol li img {
+                width: 200px; /* Adjust image size */
+                max-width: 300px;
+                height: auto;
+                margin-left: 20px;
+                border-radius: 5px;
+            }
+
+            .writing-prompts ol li p {
+                font-size: 1.1em; /* Smaller font for descriptions */
+            }
+
+            /* Mobile responsiveness */
+            @media only screen and (max-width: 768px) {
+                #container {
+                    width: 90%;
+                    padding: 20px;
+                }
+
+                h1 {
+                    font-size: 2em;
+                }
+
+                .genai-tools ol li {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .genai-tools ol li img {
+                    width: 80%;
+                    margin-left: 0;
+                    margin-top: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Welcome to the IMDA Gen AI Learning Package</h1>
+
+            <!-- AI Definition Section -->
+            <div class="ai-definition">
+                <h2>What is Artificial Intelligence (AI)?</h2>
+                <p>Artificial Intelligence (AI) is the science of teaching machines to mimic intelligent human behaviors. AI systems are taught and trained using computer programming that learns and adapts.</p>
+            </div>
+
+            <!-- GenAI Definition Section -->
+            <div class="genai-definition">
+                <h2>Now, what exactly is GenAi?</h2>
+                <p>GenAi, also known as Generative Artificial Intelligence, refers to computer programs that use artificial intelligence to create new content. While GenAi can be used like search engines to find pre-existing information on the Internet, its main use is to create entirely new content!</p>
+            </div>
+
+            <!-- GenAi Examples Section -->
+            <div class="genai-examples">
+                <h2>Examples of What GenAi Can Do</h2>
+                <p>GenAi is capable of performing a wide variety of tasks. Here are a few examples:</p>
+                <ul>
+                    <li>
+                        <strong>Text Generation:</strong>
+                        <p>GenAi can generate creative and coherent text, such as stories, articles, or even poetry, based on a prompt or input.</p>
+                        <img src="text-generation-image.jpeg" alt="Text Generation Example">
+                    </li>
+                    <li>
+                        <strong>Image Generation:</strong>
+                        <p>GenAi can create entirely new images, from abstract art to realistic photos, based on descriptions or themes provided by users.</p>
+                        <img src="image-generation-image.jpg" alt="Image Generation Example">
+                    </li>
+                    <li>
+                        <strong>Music Composition:</strong>
+                        <p>GenAi can compose music, generating original melodies and harmonies across different genres and styles.</p>
+                        <img src="music-generation-image.jpg" alt="Music Composition Example">
+                    </li>
+                    <li>
+                        <strong>Code Generation:</strong>
+                        <p>GenAi can assist developers by generating functional code snippets or even complete programs based on specific requirements.</p>
+                        <img src="code-generation-image.jpg" alt="Code Generation Example">
+                    </li>
+                    <li>
+                        <strong>Video Creation:</strong>
+                        <p>GenAi can create short videos or animations, including deepfake technology and video editing, based on given parameters.</p>
+                        <img src="video-creation-image.avif" alt="Video Creation Example">
+                    </li>
+                    <li>
+                        <strong>Game Development:</strong>
+                        <p>GenAi can design levels, characters, and storylines for video games, making the development process faster and more creative.</p>
+                        <img src="game-development-image.jpg" alt="Game Development Example">
+                    </li>
+                </ul>
+            </div>
+
+            <!-- New Section: Common GenAi Tools -->
+            <div class="genai-tools">
+                <h2>Common GenAi Tools and How to Use Them</h2>
+                <ol>
+                    <li>
+                        <p><strong style="color: black;">Step 1: Choose a Generative AI Tool</strong></p>
+                        <p>To get started with GenAi, choose a tool such as OpenAI's GPT for text generation, or DALL·E for image creation. These platforms are easy to access through their websites.</p>
+                        <img src="choose-tool-image.jpg" alt="Choose AI Tool">
+                    </li>
+                    <li>
+                        <p><strong style="color: black;">Step 2: Sign Up and Log In</strong></p>
+                        <p>Most platforms will require you to sign up and create an account. Fill in your information and log in to access the tool.</p>
+                        <img src="signup-login-image.jpg" alt="Sign Up and Log In">
+                    </li>
+                    <li>
+                        <p><strong style="color: black;">Step 3: Enter Your Prompt or Parameters</strong></p>
+                        <p>For text generation, enter your desired prompt or idea into the text box. For image creation, describe the image you want to generate in detail.</p>
+                        <img src="enter-prompt-image.jpg" alt="Enter Prompt">
+                    </li>
+                    <li>
+                        <p><strong style="color: black;">Step 4: Generate and Review</strong></p>
+                        <p>Click the "Generate" button, and let the AI do its magic! Review the output and make adjustments as needed.</p>
+                        <img src="generate-review-image.jpg" alt="Generate and Review">
+                    </li>
+                </ol>
+            </div>
+
+            <!-- New Section: How to Write Better Prompts -->
+            <div class="writing-prompts">
+                <h2>How to Write Better Prompts</h2>
+                <ol>
+                    <li><strong style="color: black;">1. Use Natural Language</strong>
+                        <p style="font-size: 1em;">Write as if you are speaking to another person. Express thoughts in full sentences.</p>
+                    </li>
+                    <li><strong style="color: black;">2. Be Specific and Iterate</strong>
+                        <p style="font-size: 1em;">Tell the Gen AI tool what you need it to do. Provide as much context as possible.</p>
+                    </li>
+                    <li><strong style="color: black;">3. Be Concise and Clear</strong>
+                        <p style="font-size: 1em;">Start with clear, direct questions or statements on what you want the Gen AI tool to do.</p>
+                    </li>
+                    <li><strong style="color: black;">4. Keep the Conversation Going</strong>
+                        <p style="font-size: 1em;">Fine-tune your prompts if required and use follow-up prompts to get a better response.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <p><a href="page2.html">Click here to start the quiz and see how much you have learnt!</a></p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* Black background */
+            overflow: hidden;
+            position: relative;
+        }
+
+        #game-container {
+            width: 960px;
+            height: 540px;
+            background-color: rgba(28, 28, 28, 0.85);
+            border-radius: 10px;
+            position: relative;
+            padding: 40px 20px; /* equal padding on top and bottom */
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #additional-text {
+            font-size: 1.2em;
+            color: #f0f0f0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #line {
+            width: 100%;
+            height: 5px;
+            background-color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        #question {
+            font-size: 1.8em;
+            color: red; /* Question in red */
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .door-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .door {
+            width: 400px;
+            height: 300px;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid #3498db;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .door img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+        }
+
+        .door-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .option-text {
+            position: absolute;
+            bottom: -40px; /* Positioned below the door image */
+            left: 0;
+            right: 0;
+            color: blue; /* Option text in blue */
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .door:hover {
+            background-color: #2c2c2c;
+            border-color: #1abc9c;
+        }
+
+        .animation-text {
+            font-size: 2em;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            animation: fadeIn 2s;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Style for the 'Yes' button */
+        .yes-button {
+            display: inline-block;
+            background-color: #1abc9c;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 40px; /* Increased margin to move button down */
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .yes-button:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="additional-text">Yet another split path. Why are there so many doors?</div>
+        <div id="line"></div>
+        <div id="question">GenAI can compose music and hit the drums.</div>
+        <div class="door-container">
+            <div class="door" onclick="checkAnswer(this, 'True')">
+                <img src="door.jpeg" alt="Door 1">
+                <div class="door-content">
+                    <div class="option-text">True</div>
+                </div>
+            </div>
+            <div class="door" onclick="checkAnswer(this, 'False')">
+                <img src="door.jpeg" alt="Door 2">
+                <div class="door-content">
+                    <div class="option-text">False</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentAnswer = "";
+        let answered = false;
+
+        function checkAnswer(door, selectedAnswer) {
+            if (answered) return; // Prevent multiple clicks
+
+            answered = true;
+            currentAnswer = selectedAnswer;
+            if (currentAnswer === "False") {
+                door.style.borderColor = "green";
+                displayNextScreen("No way... Is this luck or skill?");
+            } else {
+                door.style.borderColor = "red";
+                displayFailureScreen();
+            }
+        }
+
+        function displayNextScreen(message) {
+            const gameContainer = document.getElementById('game-container');
+            gameContainer.innerHTML = `<div class="animation-text">${message}</div>`;
+            setTimeout(() => {
+                window.location.href = "quiz5.html"; // Redirect to quiz5.html
+            }, 3000); // 2 seconds delay before going to next quiz
+        }
+
+        function displayFailureScreen() {
+            const gameContainer = document.getElementById('game-container');
+            gameContainer.innerHTML = `
+                <div class="animation-text">You died and the whole world was wiped out...</div>
+                <div class="animation-text">You have failed your people.</div>
+                <div class="animation-text">Try again?</div>
+                <button class="yes-button" onclick="retryQuiz()">Try Again</button>
+            `;
+        }
+
+        function retryQuiz() {
+            window.location.href = "quiz.html"; // Reload the first quiz
+        }
+    </script>
+</body>
+</html>
